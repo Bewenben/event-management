@@ -1,38 +1,235 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Hk-Grotesk";
+  src: url("./Fonts/hk-grotesk.regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "Hk-Grotesk";
+  src: url("./Fonts/hk-grotesk.bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "Hk-Grotesk";
+  src: url("./Fonts/hk-grotesk.light.ttf") format("truetype");
+  font-weight: lighter;
+  font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  margin: 0;
+  font-family: -apple-system, "Hk-Grotesk", BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #121212;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.bheader {
+  background-image: linear-gradient(0deg, rgba(16, 18, 66, 1) 10%, #ed595580 100%), url(./Images/people-festival.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
-@keyframes App-logo-spin {
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*----------------------------------------------------------------- */
+
+.form__group {
+  position: relative;
+  padding: 20px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 17px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #9b9b9b;
+  pointer-events: none;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #116399, #38caef);
+  border-image-slice: 1;
+}
+
+.form__field:focus~.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #38caef;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- */
+
+.cardsign {
+  /* width: fit-content;
+  height: fit-content; */
+  background: rgb(40, 40, 55);
+  background: linear-gradient(344deg, rgba(40, 40, 55, 1) 0%, rgba(16, 16, 18, 1) 50%);
+  box-shadow: 4px 6px 14px #00000036;
+  border-radius: 3px;
+  color: #F9F9F9;
+  padding: 16px;
+  transition: all .3s;
+}
+
+/*-------------------------------- */
+
+.buttonsign {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(61, 106, 255);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.buttonsign:hover {
+  background: #3d6aff;
+  box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.buttonsign:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+.buttonsign::before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    left: 0%;
   }
+
+  50% {
+    opacity: 1;
+  }
+
   to {
-    transform: rotate(360deg);
+    opacity: 0;
+    left: 100%;
   }
 }
+
+.buttonsign:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+/* ------------------------------------------------ */
+
+
+.homeheader {
+  background-image: linear-gradient(0deg, #121212 10%, #00000033 100%) ,url(./Images/1.webp);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+/* ------------------------------------------------- */
+
+.cardevent {
+  width: 450px;
+  height: 504px;
+  background-image: linear-gradient(163deg, #3d6aff 0%, rgb(156, 85, 237) 100%);
+  border-radius: 20px;
+  transition: all .3s;
+ }
+ 
+ .card2event {
+  width: 450px;
+  height: 504px;
+  background-color: #1a1a1a;
+  border-radius:18px;
+  transition: all .2s;
+ }
+ 
+ .card2event:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+ }
+ 
+ .cardevent:hover {
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+ }
+
+
