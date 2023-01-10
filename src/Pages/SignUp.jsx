@@ -17,9 +17,9 @@ export default function SignUp() {
         event.preventDefault();
         axios.post('http://localhost:80/eventmanagement/signup.php', inputs).then(function(response){
             console.log(response.status);
+            window.localStorage.setItem("email", inputs.Email);
             navigate("/home");
         });
-        // console.log(inputs);
     }
 
     return (
@@ -32,27 +32,27 @@ export default function SignUp() {
                     <form className="flex flex-col justify-center space-y-8 px-36 py-8" onSubmit={handleSubmit}>
                         <span className="text-8xl text-center font-bold">Register</span>
                         <div className="form__group field">
-                            <input required="" placeholder="Name" className="form__field" type="name" onChange={handleChange} name="Name"></input>
+                            <input required placeholder="Name" className="form__field" type="name" onChange={handleChange} name="Name"></input>
                             <label className="form__label" htmlFor="Name">Name</label>
                         </div>
                         <div className="form__group field">
-                            <input required="" placeholder="Phone" className="form__field" type="phone" onChange={handleChange} name="Phone"></input>
+                            <input required placeholder="Phone" className="form__field" type="phone" onChange={handleChange} name="Phone"></input>
                             <label className="form__label" htmlFor="Phone">Phone</label>
                         </div>
                         <div className="form__group field">
-                            <input required="" placeholder="Email" className="form__field" type="Email" onChange={handleChange} name="Email"></input>
+                            <input required placeholder="Email" className="form__field" type="Email" onChange={handleChange} name="Email"></input>
                             <label className="form__label" htmlFor="Email">Email</label>
                         </div>
                         <div className="form__group field">
-                            <input required="" placeholder="Date of Birth" className="form__field" type="date" onChange={handleChange} name="DOB"></input>
+                            <input required placeholder="Date of Birth" className="form__field" type="date" onChange={handleChange} name="DOB"></input>
                             <label className="form__label" htmlFor="date">Date of Birth</label>
                         </div>
                         <div className="form__group field">
-                            <input required="" placeholder="Address" className="form__field" type="address" onChange={handleChange} name="Address"></input>
+                            <input required placeholder="Address" className="form__field" type="address" onChange={handleChange} name="Address"></input>
                             <label className="form__label" htmlFor="address">Address</label>
                         </div>
                         <div className="form__group field">
-                            <input required="" placeholder="Password" className="form__field" type="Password" onChange={handleChange} name="Password"></input>
+                            <input required placeholder="Password" className="form__field" type="Password" onChange={handleChange} name="Password"></input>
                             <label className="form__label" htmlFor="Password">Password</label>
                         </div>
                         <button className="buttonsign text-center">
